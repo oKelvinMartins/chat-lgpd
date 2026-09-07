@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Inter:wght@400;500&display=swap');
+
+:root {
+  /* Tokens Base - Tema Azul (Solicitação do Usuário) */
+  --bg-color-base: #F8FAFC;
+  --bg-blob-1: #DBEAFE; /* Azul suave */
+  --bg-blob-2: #E0E7FF; /* Índigo clarinho */
+  
+  --accent-primary: #3B82F6; /* Azul vibrante */
+  --accent-primary-hover: #2563EB;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  
+  /* Superfícies Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 8px 32px rgba(15, 23, 42, 0.05);
+  
+  /* Fontes */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Micro-animações globais */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-color-base);
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Mesh Gradient Background Otimizado */
+.mesh-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: var(--bg-color-base);
+  overflow: hidden;
+}
+
+.mesh-bg::before,
+.mesh-bg::after {
+  content: "";
+  position: absolute;
+  width: 80vw;
+  height: 80vh;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.8;
+  animation: float 20s infinite ease-in-out alternate;
+}
+
+.mesh-bg::before {
+  background: var(--bg-blob-1);
+  top: -10%;
+  left: -10%;
+}
+
+.mesh-bg::after {
+  background: var(--bg-blob-2);
+  bottom: -10%;
+  right: -10%;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(10%, 10%) scale(1.1); }
+}
+
+/* Scrollbar Bonita */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.4);
+}
