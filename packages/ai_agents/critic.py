@@ -13,7 +13,6 @@ logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 class CriticAgent:
     """
     Critic Agent: Output Guardrail.
-    Uses OpenAI Structured Outputs (Pydantic) connected to local Ollama.
     Evaluates if the Researcher's answer is faithful to the provided context.
     """
     def __init__(self, model: str = "openai/gpt-oss-20b"):
